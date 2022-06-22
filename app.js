@@ -35,6 +35,17 @@ app.get("/word/add", async (req, res) => {
   });
 });
 
+ /** 删除 */
+app.get("/word/delete", async (req, res) => {
+  const params = req.query;
+  console.log('🏳️‍🌈 <输出> params', params)
+  await db.deleteById('wordList',params.id)
+  res.json({
+    success: true,
+    data: [],
+  });
+});
+
 
 
 app.listen(8100, () => {
