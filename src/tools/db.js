@@ -7,7 +7,7 @@ const mongoClient = mongodb.MongoClient;
 async function _connect() {
   return await new Promise((resolve) => {
     mongoClient.connect(
-      "mongodb://124.221.159.81:27017",
+      "mongodb://124.223.108.239:27017",
       function (err, server) {
         const db = server.db("fileCloud")
         resolve({db,server}); //库名
