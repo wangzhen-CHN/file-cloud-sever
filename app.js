@@ -49,7 +49,9 @@ app.get("/word/delete", async (req, res) => {
 
 /** 查询 */
 app.get("/file/query", async (req, res) => {
-  const files = readdirSync.readDir('/Users/wz/code/file-cloud-server')
+  const {path=''} = req.query;
+  const dir = '/www/me/files/'+path
+  const files = readdirSync.readDir(dir)
   files.sort(a => { return a.type === 'file' ? 1 : -1 })//升序
   res.json({
     success: true,
